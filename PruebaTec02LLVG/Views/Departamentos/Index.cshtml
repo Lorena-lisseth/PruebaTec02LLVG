@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PruebaTec02LLVG.Models.Departamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Crear nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dnombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dnombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loc)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-outline-success" asp-route-id="@item.DeptNo">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.DeptNo" class="btn btn-outline-info">Detalles</a> |
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.DeptNo">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
